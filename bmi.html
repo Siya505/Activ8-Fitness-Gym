@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activ8 Fitness Gym</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Sports+World&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+      <nav id="navbar">
+            <div id="header">
+                <img src="images/activ8logo.png" alt="Activ8 Fitness Gym Logo">
+            </div>
+
+            <div id="tabs-top">
+                <a href="index.html">About</a>
+                <a href="index.html">Membership</a>
+                <a href="index.html">Trainers</a>
+                <a href="index.html">BMI Calculator</a>
+                <a href="index.html">Contact</a>
+            </div>
+
+            <div class="menu-toggle">&#9776;</div>
+        </nav>
+    </header>
+
+
+   <section id="bmi">
+      <div class="bmi-container">
+        <h2>Test Your BMI</h2>
+        <p>Enter your details below to check your BMI and get a recommendation.</p>
+        
+        <form id="bmiForm">
+          <div class="input-group">
+            <label for="weight">Weight (kg)</label>
+            <input type="number" id="weight" min="1" step="any" required>
+          </div>
+          <div class="input-group">
+            <label for="height">Height (cm)</label>
+            <input type="number" id="height" min="1" step="any" required>
+          </div>
+          <button type="submit">Calculate</button>
+        </form>
+
+        <div id="bmi-result" class="hidden">
+          <h3>Your BMI: <span id="bmiValue"></span></h3>
+          <p id="bmiMessage"></p>
+          <div id="bmiEmoji"></div>
+
+          <!-- Calendar & Timeline -->
+          <h4>4-Week Suggested Plan</h4>
+          <input type="date" id="startDate" />
+          <ul class="timeline">
+            <li id="week1">Week 1: 🏃 Light cardio & stretching</li>
+            <li id="week2">Week 2: 🏋️ Intro to weight training</li>
+            <li id="week3">Week 3: 🥗 Nutrition focus + endurance</li>
+            <li id="week4">Week 4: 🔥 High-intensity interval training</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Activ8 Fitness Gym. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="#"><img src="images/facebook-icon.png" alt="Facebook"></a>
+            <a href="#"><img src="images/twitter-icon.png" alt="Twitter"></a>
+            <a href="#"><img src="images/instagram-icon.png" alt="Instagram"></a>
+        </div>
+    </footer>
+    
+<!-- SCRIPT -->
+<script>
+document.getElementById("bmiForm").addEventListener("submit", function(e) {
+  e.preventDefault(); // prevent form refresh
+
+  const weight = parseFloat(document.getElementById("weight").value);
+  const heightCm = parseFloat(document.getElementById("height").value);
+
+  if (!weight || !heightCm) {
+    alert("Enter valid numbers!");
+    return;
+  }
+
+  const height = heightCm / 100; // convert cm to meters
+  const bmi = (weight / (height * height)).toFixed(1);
+
+  const bmiValue = document.getElementById("bmiValue");
+  const bmiMessage = document.getElementById("bmiMessage");
+  const bmiEmoji = document.getElementById("bmiEmoji");
+  const bmiResult = document.getElementById("bmi-result");
+  const startDateInput = document.getElementById("startDate");
+
+  let message = "";
+  let emoji = "";
+
+  if (bmi < 18.5) {
+    message = "Underweight. Try Strength Training 💪";
+    emoji = "🥗";
+  } else if (bmi >= 18.5 && bmi < 25) {
+    message = "Healthy range! Join our Fitness & Cardio Classes 🏃";
+    emoji = "😃";
+  } else if (bmi >= 25 && bmi < 30) {
+    message = "Overweight. Cardio & HIIT can help 🔥";
+    emoji = "🏋️";
+  } else {
+    message = "Obese. Consider guided Personal Training 🧑‍⚕️";
+    emoji = "⚠️";
+  }
+
+  bmiValue.textContent = bmi;
+  bmiMessage.textContent = message;
+  bmiEmoji.textContent = emoji;
+  bmiResult.classList.remove("hidden");
+
+  // Update timeline dates
+  const start = new Date(startDateInput.value || new Date());
+  document.querySelectorAll(".timeline li").forEach((li, i) => {
+    const weekDate = new Date(start);
+    weekDate.setDate(start.getDate() + i * 7); // each week
+    const originalText = li.textContent.split(":")[0];
+    li.textContent = `${originalText}: ${li.textContent.split(":")[1]} (Start: ${weekDate.toLocaleDateString()})`;
+  });
+});
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,1033 @@
+/* ===============================
+   Base styles for navbar container
+   =============================== */
+#navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1500px;
+  margin-top: -1.5cap; /* Adjust based on your design */
+  margin-bottom: -1cap; /* Adjust based on your design */
+  padding: 0 20px;
+}
+
+#navbar img {
+  height: 50px;
+}
+
+body {
+  padding-top: 80px; /* adjust based on header height */
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.9); /* black but transparent */
+  z-index: 1000;
+  padding: 10px 0;
+}
+
+/* ===============================
+   Logo image styles
+   =============================== */
+#header img {
+  height: 200px;
+    margin-top: -5cap;
+    margin-bottom: -5cap; 
+    margin-left: -1cap;               /* Set logo height */
+  cursor: pointer;                /* Pointer cursor on hover */
+}
+
+/* ===============================
+   Navigation links container
+   =============================== */
+#tabs-top a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+}
+
+/* ===============================
+   Navigation links styles
+   =============================== */
+#tabs-top a {
+  color: white;                  /* White text color */
+  text-decoration: none;         /* Remove underline */
+  font-weight: 900;              /* Bold text */
+  font-size: 1.7rem;               /* Link font size */
+  transition: color 0.3s ease;  /* Smooth color transition on hover */
+  font-family: 'Barlow Condensed', sans-serif; /* Font family */
+}
+
+/* ===============================
+   Navigation link hover effect
+   =============================== */
+#tabs-top a:hover {
+  color: #09ff00                /* Accent color on hover */
+}
+
+/* ===============================
+   Hamburger menu icon styles (hidden on desktop)
+   =============================== */
+.menu-toggle {
+  display: none;                 /* Hide by default */
+  font-size: 2rem;               /* Bigger icon size */
+  color: white;                  /* White color */
+  cursor: pointer; 
+  margin-top: 0cap;              /* Pointer cursor on hover */
+}
+
+/* ===============================
+   Responsive styles for mobile devices
+   =============================== */
+@media (max-width: 768px) {
+  /* Hide menu links by default */
+#tabs-top {
+  position: absolute;       /* Allows overlap */
+  top: 60px;                /* Position below navbar */
+  right: 0;
+  width: 200px;
+  background: #000;
+  z-index: 1000;            /* Higher than hero-content */
+  display: none;            /* Hidden by default */
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: 0 0 0 8px;
+}
+
+  /* Style individual links in mobile menu */
+  #tabs-top a {
+    padding: 0.5rem 0;             /* Vertical spacing */
+    border-bottom: 1px solid #333; /* Divider between links */
+  }
+
+  /* Show hamburger icon on mobile */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Show menu when active */
+  #tabs-top.active {
+    display: flex;
+  }
+}
+
+/* ===============================
+   Hero section container
+   =============================== */
+#hero {
+  position: relative;
+  height: 100vh;               /* Full viewport height */
+  overflow: hidden;            /* Hide overflow from video */
+  display: flex;
+  justify-content: center;     /* Center horizontally */
+  align-items: center;         /* Center vertically */
+  text-align: center;
+  color: white;                /* White text for contrast */
+  font-family: 'Barlow Condensed', sans-serif;
+  padding: 0 1rem;
+}
+
+.hero-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, white 100%);
+  pointer-events: none;
+  opacity: 0; /* start invisible */
+  transition: opacity 0.2s ease-out;
+  z-index: 1; /* above video, below text */
+}
+
+/* ===============================
+   Background video styling
+   =============================== */
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;           /* Cover entire hero section */
+  transform: translate(-50%, -50%);
+  z-index: -1;                /* Behind content */
+  filter: brightness(0.6);    /* Darken video for readability */
+  background-color: #000;
+}
+
+/* ===============================
+   Hero text content styles
+   =============================== */
+.hero-content {
+  max-width: 1100px;
+  z-index: 1;                 /* In front of video */
+}
+
+/* Hero heading */
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+/* Highlight span inside heading */
+.hero-content h1 span {
+  color: #09ff00;
+  font-family: 'Sports World', sans-serif; /* Accent font */
+  font-weight: 80; /* Bold for emphasis */         
+}
+
+/* Hero paragraph */
+.hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+/* Button styling */
+.btn {
+  background-color: #09ff00;
+  color: rgb(0, 0, 0);
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ffffff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-content p {
+    font-size: 1rem;
+  }
+  
+  .btn {
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* ===============================
+    About section styles
+   =============================== */
+
+#about {
+  display: flex;;
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem 4.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Barlow Condensed', sans-serif;
+  color: #222;
+
+}
+
+/* About Section Image */
+#about img {
+  width: 60%;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin-left: -5cap;
+}
+
+/* Add flex column for text container */
+.about-text {
+  display: flex;
+  color: #000000;
+  flex-direction: column;
+  justify-content: center;  /* Vertically center text block */
+  max-width: 55%;
+}
+
+/* About Section Text */
+#about h2 {
+  font-size: 2.5rem;
+  font-family: 'Sports World', sans-serif;
+  font-weight: 80;
+  margin-bottom: 1rem;
+  color: #09ff00; /* Accent color */
+}
+
+#about p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 550px;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+  #about {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  #about img {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  #about p {
+    max-width: 100%;
+  }
+}   
+
+/* ===============================
+   Classes section styles
+   =============================== */
+
+/* FITNESS CLASSES SLIDER */
+#fitness-classes {
+  padding: 1rem;
+  font-family: 'Sports World', sans-serif;
+  font-size: 2rem;
+  color: #09ff00; /* Accent color */
+  margin-bottom: 2rem;
+  margin-top: -2rem;
+}
+
+.slider-wrapper {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  margin-top: -2rem; /* Adjust based on your design */
+}
+
+.slider {
+  display: flex;
+  gap: 0.2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.class-slide {
+  flex: 0 0 700px; /* width of each slide */
+  position: relative;
+  scroll-snap-align: start;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.class-slide video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+  filter: brightness(0.6); 
+}
+
+.class-label {
+  position: absolute;
+  top: 180px;
+  left: 230px;
+  color: #ffffff;
+  font-weight: 700;
+  font-family: 'Barlow Condensed', sans-serif;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0px;
+  font-size: 2rem;
+}
+
+/* Hide scrollbar for cleaner look */
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.slider {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+
+
+/* ===============================
+    Plan Section Styles
+   =============================== */
+
+#plans {
+  background-color: #000;       /* Black background */
+  color: #fff;                  /* White text */
+  padding: 4rem 2rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  text-align: center;
+}
+
+/* Section heading */
+#plans h2 {
+  font-size: 2.8rem;
+  margin-bottom: 2rem;
+  color: #09ff00;               /* Accent orange */
+}
+
+/* Container for the plan cards */
+.plan-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Individual plan cards */
+.plan-card {
+  background: #111;             /* Dark gray card background */
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  flex: 1 1 280px;              /* Responsive width */
+  box-shadow: 0 6px 15px rgba(72, 255, 0, 0.884);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.plan-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgb(255, 255, 255);
+}
+
+/* Featured plan card */
+.plan-card.featured {
+  background: #111;          /* Solid accent orange background */
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(72, 255, 0, 0.884);
+  font-weight: 700;
+  cursor: default;
+}
+
+/* Plan card headings */
+.plan-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Price text */
+.plan-card p {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+/* Feature list */
+.plan-card ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+  width: 100%;
+  text-align: left;
+}
+
+.plan-card ul li {
+  padding-left: 1rem;
+  position: relative;
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+}
+
+/* Add checkmark before each feature */
+.plan-card ul li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  color: #09ff00;
+  font-weight: 700;
+}
+
+/* Buttons */
+.plan-card button {
+  background-color:#09ff00;
+  border: none;
+  padding: 0.75rem 2rem;
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 180px;
+}
+
+.plan-card button:hover {
+  background-color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .plan-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .plan-card {
+    max-width: 320px;
+    width: 100%;
+  }
+}
+
+/* ===============================
+    Trainer Section Styles
+   =============================== */
+
+/* Trainers Section */
+#trainers {
+    position: relative;
+    padding: 50px 20px;
+    background-color: #000;
+    text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    overflow: hidden;
+}
+#trainers.active::before {
+    opacity: 1; /* fade in when active */
+}
+
+/* Gradient overlay */
+#trainers::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgb(255, 255, 255),
+        rgba(0, 0, 0, 0.9)
+    );
+    opacity: 0; /* start hidden */
+    transition: opacity 0.5s ease;
+    z-index: 0;
+}
+
+#trainers h2 {
+    font-size: 3rem;
+    font-family: 'Sports World', sans-serif;
+    font-weight: 400;
+    margin-bottom: 2.5rem;
+    color: #09ff00;
+    text-align: center;
+    position: relative;
+}
+
+.trainer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+/* Card Styling */
+.trainer-card {
+    background: rgba(17, 17, 17, 0.85);
+    border: 1px solid rgba(9, 255, 0, 0.2);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 25px rgba(9, 255, 0, 0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    backdrop-filter: blur(8px);
+}
+
+.trainer-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(9, 255, 0, 0.4);
+}
+
+/* Image with Overlay */
+.trainer-card img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.trainer-card:hover img {
+    transform: scale(1.1);
+}
+
+.trainer-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 20%, transparent 100%);
+    opacity: 0.8;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+.trainer-card:hover::before {
+    opacity: 0.5;
+}
+
+/* Text Content */
+.trainer-card .content {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    z-index: 2;
+    text-align: left;
+}
+
+.trainer-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+    color: #09ff00;
+}
+
+.trainer-card p {
+    font-size: 0.95rem;
+    color: #ffffff;
+    line-height: 1.5; 
+}
+
+/* Glow Accent Line */
+.trainer-card h3::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 3px;
+    margin-top: 5px;
+    background: #09ff00;
+    border-radius: 2px;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+    #trainers h2 {
+        font-size: 2.4rem;
+    }
+    .trainer-card img {
+        height: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    #trainers h2 {
+        font-size: 2rem;
+    }
+    .trainer-card img {
+        height: 240px;
+    }
+}
+
+
+/* ===============================
+        BMI Calculator Section Styles
+   =============================== */
+
+/* Test Your BMI Section */
+#bmi-promo {
+  background: #09ff00;
+  color: #fff;
+  padding: 20px 5px;
+  font-family: 'Barlow Condensed', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bmi-content {
+  display: flex;
+  max-width: 1100px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.bmi-text {
+  flex: 1;
+}
+
+.bmi-text h2 {
+  font-size: 3rem;
+  color: #ffffff;
+  margin-bottom: 15px;
+  font-family: 'Sports World', sans-serif; /* Accent font */
+  font-weight: 80; /* Bold for emphasis */
+}
+
+.bmi-text p {
+  font-size: 1.4rem;
+  margin-top: -15px;
+  margin-bottom: 5px;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+.bmi-btn {
+  display: inline-block;
+  background: #000000;
+  color: #ffffff;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 700;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+.bmi-btn:hover {
+  background: #ffffff;
+  color: #000;
+  transform: translateY(-3px);
+}
+
+.bmi-image img {
+  max-width: 500px;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(9, 255, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .bmi-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .bmi-image img {
+    max-width: 300px;
+  }
+}
+
+
+/* ================================
+   Why join section styles
+   =============================== */
+
+   /* WHY Join Us Section */
+#why-join {
+    padding: 3rem 2rem;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Barlow Condensed', sans-serif;
+    text-align: left;
+    max-width: 1500px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+#why-join h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+}
+
+#why-join h2 span {
+    color: #09ff00;
+    font-family: 'Sports World', sans-serif; /* Accent font */
+}
+
+#why-join p {
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+    color: #ddd;
+}
+
+@media (max-width: 768px) {
+    #why-join {
+        padding: 2rem 1rem;
+        text-align: left;
+    }
+
+    #why-join h2 {
+        font-size: 2rem;
+    }
+
+    #why-join p {
+        font-size: 1rem;
+    }
+}
+
+/* ===============================
+   BMI Calculator Styles
+   =============================== */
+
+   /* BMI Section */
+#bmi {
+  background-color: #000;
+  padding: 60px 20px;
+  text-align: center;
+  margin-top: -50px;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+#bmi h2 {
+  font-family: 'Sports World', sans-serif;
+  color: #09ff00;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+#bmi p {
+  color: #ccc;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.bmi-container {
+  max-width: 500px;
+  margin: 0 auto;
+  background: rgba(17, 17, 17, 0.9);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(9, 255, 0, 0.4);
+}
+
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  color: #09ff00;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  font-family: 'Sports World', sans-serif;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #09ff00;
+  background: #111;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #fff;
+  box-shadow: 0 0 10px #09ff00;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  background: #09ff00;
+  border: none;
+  border-radius: 12px;
+  color: #000;
+  font-size: 1.2rem;
+  font-family: 'Sports World', sans-serif;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #0f0;
+  box-shadow: 0 0 15px #09ff00;
+}
+
+/* Result Box */
+#bmi-result {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 12px;
+  background: #111;
+  border: 2px solid #09ff00;
+  box-shadow: 0 0 15px rgba(9, 255, 0, 0.3);
+}
+
+#bmi-result h3 {
+  font-size: 1.5rem;
+  color: #09ff00;
+}
+
+#bmiMessage {
+  font-size: 1.1rem;
+  color: #ccc;
+  margin: 10px 0;
+}
+
+#bmiEmoji {
+  font-size: 2.5rem;
+  margin-top: 10px;
+}
+
+.timeline {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  margin-top: 15px;
+}
+
+.timeline li {
+  margin-bottom: 0.7em;
+  padding-left: 1.2em;
+  position: relative;
+  color: #ccc;
+}
+
+.timeline li:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 0.5em;
+  height: 0.5em;
+  background: #09ff00;
+  border-radius: 50%;
+}
+
+#startDate {
+  margin: 10px 0 20px 0;
+  padding: 8px;
+  width: 100%;
+  border-radius: 8px;
+  border: 2px solid #09ff00;
+  background: #111;
+  color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+.hidden { display: none; }
+
+/* ===============================
+   Contact Section
+   =============================== */
+#contact {
+    background-color: #000; /* Black background */
+    color: #09ff00;
+    font-family: 'Barlow Condensed', sans-serif;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#contact h2 {
+    font-family: 'Sports World', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #09ff00;
+}
+
+#contact p {
+    margin-bottom: 30px;
+    font-size: 1rem;
+    color: #ccc;
+}
+
+/* Contact form */
+#contact form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#contact input,
+#contact textarea {
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    background-color: #111;
+    color: #09ff00;
+    transition: all 0.3s ease;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+    box-shadow: 0 0 10px #09ff00;
+}
+
+/* Submit button */
+#contact button {
+    padding: 12px 20px;
+    background-color: #09ff00;
+    color: #000;
+    border: none;
+    border-radius: 30px;
+    font-family: 'Sports World', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#contact button:hover {
+    background-color: #ffffff;
+}
+
+/* Footer */
+footer {
+    background-color: #111;
+    color: #ccc;
+    text-align: center;
+    padding: 30px 20px;
+    font-family: 'Barlow Condensed', sans-serif;
+    border-top: 1px solid #09ff00;
+}
+
+footer p {
+    margin: 0 0 10px 0;
+}
+
+footer .social-icons a {
+    margin: 0 10px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+footer .social-icons a img {
+    width: 30px;
+    height: 30px;
+}
+
+footer .social-icons a:hover {
+    transform: scale(1.2);
+}
+
+/* Footer credit link */
+.footer-credit a {
+    color: #09ff00;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-credit a:hover {
+    color: #ffffff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #contact h2 {
+        font-size: 2rem;
+    }
+
+    #contact form {
+        gap: 12px;
+    }
+
+    footer .social-icons a img {
+        width: 25px;
+        height: 25px;
+    }
+}
